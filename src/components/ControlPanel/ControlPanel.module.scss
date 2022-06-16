@@ -1,0 +1,24 @@
+.controlPanel{
+
+  padding: 5px;
+  border-radius: 10px;
+  margin: 20px 20px 20px 20px;
+
+  .loadButton {
+    margin: 20px 0 20px 0;
+
+    span{
+      margin-left: 50px;
+    }
+  }
+
+  .loadProgress {
+    margin: 20px 0 20px 0;
+    width: auto;
+
+    span {
+      height: 15px;
+    }
+
+  }
+}

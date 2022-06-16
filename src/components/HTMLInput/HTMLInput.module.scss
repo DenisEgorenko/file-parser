@@ -1,0 +1,34 @@
+.htmlInput {
+
+
+  padding: 5px;
+  border-radius: 10px;
+  margin: 20px;
+  height: 250px;
+
+  .updateButton{
+    margin-bottom: 5px;
+  }
+
+  .deleteButton{
+    margin-bottom: 5px;
+
+    &:hover{
+      background-color: lightcoral;
+    }
+    background-color: lightcoral;
+    margin-left: 20px;
+  }
+
+
+  textarea {
+    padding: 7px 7px 0 7px;
+    border: 1px solid lightgray;
+    width: calc(100% - 17px);
+    height: calc(100% - 55px);
+    overflow-y: scroll;
+    scrollbar-gutter: auto;
+    resize: none;
+  }
+
+}
