@@ -37,24 +37,30 @@ function MainPage() {
                 link: 'https://connectedsource.pwcinternal.com' + item.parentElement.attributes[9].nodeValue,
             }
         })
-        setDocuments(arrayOf)
-        setMessage('Документы готовы к загрузке')
-    }
 
-    const download = async (link:string) => {
-        window.open(link, '_blank')
+        if (arrayOf.length !== 0){
+            setDocuments(arrayOf)
+            setMessage('Документы готовы к загрузке')
+        } else {
+            setMessage('Неверный формат HTML')
+        }
+
     }
 
     const DownloadDocuments = async () => {
 
-        setMessage('Идет загрузка')
+        if (documents.length !== 0){
 
-        documents.forEach((item, index) => {
-            setTimeout(() => {
-                window.open(item.link, '_blank')
-                setDownloaded(downloaded+=2)
-            }, 3000 * (index + 1))
-        })
+            setMessage('Идет загрузка')
+            documents.forEach((item, index) => {
+                setTimeout(() => {
+                    window.open(item.link, '_blank')
+                    setDownloaded(downloaded+=2)
+                }, 3000 * (index + 1))
+            })
+        } else {
+            setMessage('Нет документов для загрузки')
+        }
     }
 
     return (
