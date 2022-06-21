@@ -22,6 +22,9 @@ function MainPage() {
 
     let [downloaded, setDownloaded] = useState(0)
 
+    const [input, setInput] = useState(15)
+
+
 
     const ParseHTML = () => {
         let parser = new DOMParser();
@@ -49,17 +52,16 @@ function MainPage() {
 
     const DownloadDocuments = async () => {
 
-        if (documents.length !== 0){
+        if (documents.length !== 0 && input !== NaN){
 
-            setMessage('Идет загрузка')
+            setMessage(`Идет загрузка раз в ${input} сек`)
             documents.forEach((item, index) => {
                 setTimeout(() => {
                     window.open(item.link, '_blank')
-                    setDownloaded(downloaded+=2)
-                }, 3000 * (index + 1))
+                }, (1000 * input) * (index + 1))
             })
         } else {
-            setMessage('Нет документов для загрузки')
+            setMessage('Нет документов для загрузки или неверное значение интервала')
         }
     }
 
@@ -72,7 +74,7 @@ function MainPage() {
 
             <ListOfDocuments documents={documents}/>
 
-            <ControlPanel message={message} DownloadDocuments={DownloadDocuments} valueDownloaded={downloaded}/>
+            <ControlPanel input={input} setInput={setInput} message={message} DownloadDocuments={DownloadDocuments} valueDownloaded={downloaded}/>
 
             <HTMLInput html={html} parseHTML={ParseHTML} setHtml={setHtml} setMessage={setMessage}
                        setDownloaded={setDownloaded} setDocuments={setDocuments}/>
