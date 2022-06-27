@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
         <div className='version'>
-            v0.4 (С вводом времени)
+            v0.5 (С вводом времени)
         </div>
         <MainPage/>
     </div>

@@ -22,7 +22,11 @@ function MainPage() {
 
     let [downloaded, setDownloaded] = useState(0)
 
-    const [input, setInput] = useState(15)
+    const [input, setInput] = useState(
+        localStorage.getItem('download interval')
+            ? Number(localStorage.getItem('download interval'))
+            : 15
+    )
 
 
 

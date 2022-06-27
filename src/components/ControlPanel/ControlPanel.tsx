@@ -13,7 +13,10 @@ type ControlPanelProps = {
 
 export function ControlPanel(props: ControlPanelProps) {
 
-    const inputChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => props.setInput(Number(e.currentTarget.value))
+    const inputChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        props.setInput(Number(e.currentTarget.value))
+        localStorage.setItem('download interval', e.currentTarget.value)
+    }
 
     return (
         <Paper elevation={2} className={styles.controlPanel}>
